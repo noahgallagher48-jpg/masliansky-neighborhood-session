@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Neighborhood Session · Interview</title>
+<meta name="robots" content="noindex">
+<style>
+  :root{
+    --ground:#14110D; --panel:#1C1813; --line:rgba(237,231,221,.12);
+    --ink:#EDE7DD; --muted:#A69B8A; --faint:#7A7060;
+    --accent:#E2A73E; --ok:#8FB573;
+    --serif:"Iowan Old Style",Palatino,"Palatino Linotype",Georgia,serif;
+    --sans:"Avenir Next",Avenir,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);
+    font-size:16px;line-height:1.55;padding:0 18px 60px}
+  .wrap{max-width:640px;margin:0 auto}
+  a{color:var(--accent);text-decoration:none}
+  header{padding:40px 0 18px}
+  .mark{font-family:var(--serif);font-size:12px;letter-spacing:.42em;text-transform:uppercase;
+    color:var(--accent);margin:0 0 14px}
+  h1{font-family:var(--serif);font-weight:500;font-size:26px;margin:0 0 6px}
+  .lede{color:var(--muted);font-size:14.5px;margin:0}
+  .bar{height:3px;background:var(--line);border-radius:2px;margin:22px 0 6px;overflow:hidden}
+  .bar i{display:block;height:100%;background:var(--accent);width:0;transition:width .25s}
+  .count{font-family:var(--mono);font-size:12px;color:var(--faint);margin:0 0 18px}
+  .q{font-family:var(--serif);font-size:21px;font-weight:500;margin:0 0 6px;text-wrap:balance}
+  .hint{color:var(--muted);font-size:14px;margin:0 0 18px}
+  .opts{display:flex;flex-direction:column;gap:10px;margin:0 0 16px}
+  .opt{position:relative;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:8px;
+    color:var(--ink);font-family:var(--sans);font-size:15.5px;padding:14px 46px 14px 16px;cursor:pointer;
+    transition:border-color .15s}
+  .opt:hover{border-color:rgba(226,167,62,.5)}
+  .opt.sel{border-color:var(--accent);background:rgba(226,167,62,.08)}
+  .opt .badge{position:absolute;right:12px;top:50%;transform:translateY(-50%);
+    font-family:var(--mono);font-size:12px;color:#14110D;background:var(--accent);
+    border-radius:50%;width:22px;height:22px;display:none;align-items:center;justify-content:center;font-weight:700}
+  .opt.sel .badge{display:flex}
+  textarea{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:8px;
+    color:var(--ink);font-family:var(--sans);font-size:15px;padding:12px 14px;min-height:74px;resize:vertical}
+  textarea::placeholder{color:var(--faint)}
+  .nav{display:flex;gap:10px;margin-top:22px}
+  .btn{flex:1;border:1px solid var(--accent);background:none;border-radius:8px;color:var(--accent);
+    font-size:15px;font-weight:600;padding:13px 18px;cursor:pointer;font-family:var(--sans)}
+  .btn.primary{background:var(--accent);color:#14110D}
+  .btn.ghost{border-color:var(--line);color:var(--muted);flex:0 0 auto}
+  .btn:disabled{opacity:.4;cursor:default}
+  .review{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px 18px;
+    font-size:14px;color:var(--muted);white-space:pre-wrap;font-family:var(--mono);line-height:1.6;
+    max-height:50vh;overflow:auto}
+  .done-note{color:var(--ok);font-size:14px;margin-top:10px;display:none}
+  footer{margin-top:44px;color:var(--faint);font-size:12.5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <p class="mark">Abba Photo</p>
+  <h1 id="title">The Neighborhood Session</h1>
+  <p class="lede" id="lede">Ten taps, about three minutes. The questions are pre-researched; you confirm or redirect. Answers save in this browser as you go.</p>
+</header>
+
+<div class="bar"><i id="barfill"></i></div>
+<p class="count" id="count"></p>
+
+<div id="stage"></div>
+
+<footer>Noah Gallagher · Abba Photo · <a href="mailto:noah@abba-photo.com">noah@abba-photo.com</a> · answers go straight to Noah, nothing is stored anywhere else</footer>
+</div>
+
+<script>
+const STEPS = [
+ {k:"map", type:"single", q:"The map: the Skokie-Evanston spine, the North Shore up through Highland Park, Chicago proper when the story calls for it.",
+  hint:"That's the territory your last months of episodes cover. Right map for this shoot?",
+  opts:["Yes, that's the map","Mostly, I'll adjust in a note"],
+  note:"Adjustments."},
+ {k:"beyond", type:"single", q:"Are we limited to that territory?",
+  opts:["That territory is enough","There are places beyond it, I'll name them"],
+  note:"Name them. Rough is fine."},
+ {k:"specific", type:"single", q:"Do you have locations in mind that lend themselves to the plan?",
+  hint:"Corners, blocks, doorsteps a client would recognize.",
+  opts:["Yes, I'll list them below","No, propose the route"],
+  note:"List them."},
+ {k:"episode", type:"single", q:"Should one stop be a recent episode's ground?",
+  hint:"Skokie's housing story (ep. 144), Highland Park (ep. 145), Hyde Park's 57th Street (ep. 146).",
+  opts:["Yes, Skokie","Yes, Highland Park","Yes, Hyde Park","No episode stop"],
+  note:"A different episode? Name it."},
+ {k:"uses", type:"multi", q:"What must these images serve? Tap all.",
+  opts:["Podcast cover","Compass profile","LinkedIn","Episode headers","Social","Newsletter / sponsor kit"]},
+ {k:"cover", type:"single", q:"The show's cover is text on teal today. Shoot a host portrait for that crop?",
+  opts:["Yes","Not this time"]},
+ {k:"mic", type:"single", q:"Frames at the mic, where you record?",
+  opts:["Yes","No"],
+  note:"If yes: where?"},
+ {k:"dress", type:"single", q:"First meeting with a buyer, you're wearing:",
+  opts:["A suit","Jacket, no tie","Smart casual"]},
+ {k:"avoid", type:"single", q:"From our 2022 session: anything you know you avoid in photos of yourself?",
+  opts:["Yes, one line below","Nothing comes to mind"],
+  note:"The one thing."},
+ {k:"northave", type:"single", q:"One extra, if you're game: a stop near North Avenue Beach.",
+  hint:"Off your beat entirely. A Chicago frame I have wanted to make for a while, the city the way I shoot it. We would end the night there.",
+  opts:["I'm game","Keep to my map"]},
+ {k:"riff", type:"note", q:"Anything I didn't ask?",
+  hint:"Optional. The required part is done.",
+  note:"Riff or skip."}
+];
+
+let idx = 0;
+let state = {};
+try { state = JSON.parse(localStorage.getItem("aaron_interview")||"{}"); } catch(e){}
+STEPS.forEach(s=>{ state[s.k] = state[s.k] || {sel:[], note:""}; });
+
+function save(){ localStorage.setItem("aaron_interview", JSON.stringify(state)); }
+
+function render(){
+  const total = STEPS.length;
+  document.getElementById("barfill").style.width = Math.round(100*Math.min(idx,total)/total)+"%";
+  document.getElementById("count").textContent = idx < total ? (idx+1)+" of "+total : "done";
+  const stage = document.getElementById("stage");
+  if (idx >= total) return renderReview(stage);
+  const s = STEPS[idx], st = state[s.k];
+  let h = '<p class="q">'+s.q+'</p>';
+  if (s.hint) h += '<p class="hint">'+s.hint+'</p>';
+  if (s.opts){
+    h += '<div class="opts">' + s.opts.map((o,i)=>{
+      const sel = st.sel.includes(o);
+      const badge = s.type==="rank" && sel ? (st.sel.indexOf(o)+1) : "&#10003;";
+      return '<button class="opt'+(sel?" sel":"")+'" data-i="'+i+'"><span>'+o+'</span><span class="badge">'+badge+'</span></button>';
+    }).join("") + '</div>';
+  }
+  if (s.note !== undefined) h += '<textarea id="note" placeholder="'+(s.note||"Riff if you want.")+'">'+(st.note||"")+'</textarea>';
+  h += '<div class="nav">'
+     + (idx>0 ? '<button class="btn ghost" id="back">Back</button>' : '')
+     + '<button class="btn primary" id="next">'+(idx===total-1?"Review":"Next")+'</button></div>';
+  stage.innerHTML = h;
+  stage.querySelectorAll(".opt").forEach(b=>b.addEventListener("click",()=>{
+    const o = s.opts[+b.dataset.i];
+    if (s.type==="single"){ st.sel = [o]; }
+    else {
+      const at = st.sel.indexOf(o);
+      if (at>=0) st.sel.splice(at,1); else st.sel.push(o);
+    }
+    save(); render();
+  }));
+  const note = document.getElementById("note");
+  if (note) note.addEventListener("input", ()=>{ st.note = note.value; save(); });
+  const back = document.getElementById("back");
+  if (back) back.addEventListener("click", ()=>{ idx--; render(); window.scrollTo(0,0); });
+  document.getElementById("next").addEventListener("click", ()=>{ idx++; render(); window.scrollTo(0,0); });
+}
+
+function compile(){
+  let out = "NEIGHBORHOOD SESSION - AARON'S ANSWERS\n\n";
+  STEPS.forEach(s=>{
+    const st = state[s.k];
+    if (!st.sel.length && !st.note) return;
+    out += s.q + "\n";
+    if (st.sel.length) out += "  > " + st.sel.join(s.type==="rank" ? " > " : ", ") + "\n";
+    if (st.note) out += "  note: " + st.note + "\n";
+    out += "\n";
+  });
+  return out;
+}
+
+function renderReview(stage){
+  const body = compile();
+  stage.innerHTML =
+    '<p class="q">That\'s everything.</p>'
+    + '<p class="hint">Look it over, then send it. It lands with Noah and gets built straight into the plan.</p>'
+    + '<div class="review">'+body.replace(/&/g,"&amp;").replace(/</g,"&lt;")+'</div>'
+    + '<div class="nav"><button class="btn ghost" id="back">Back</button>'
+    + '<button class="btn primary" id="send">Email it to Noah</button>'
+    + '<button class="btn" id="copy">Copy</button></div>'
+    + '<p class="done-note" id="donenote">Copied. Paste it into an email or a text to Noah.</p>';
+  document.getElementById("back").addEventListener("click",()=>{ idx = STEPS.length-1; render(); });
+  document.getElementById("send").addEventListener("click",()=>{
+    location.href = "mailto:noah@abba-photo.com?subject="
+      + encodeURIComponent("Neighborhood session: my answers")
+      + "&body=" + encodeURIComponent(body);
+  });
+  document.getElementById("copy").addEventListener("click",()=>{
+    navigator.clipboard.writeText(body).then(()=>{
+      document.getElementById("donenote").style.display="block";
+    });
+  });
+}
+
+render();
+</script>
+</body>
+</html>
