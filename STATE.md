@@ -16,6 +16,8 @@ Read with CLAUDE.md before touching the pages. Public repo: nothing here the who
 - CROSS-PROMOTION (Noah's presentation play, private-side): Aaron has been Noah's real estate agent as BOTH a buyer and a seller. Noah can use that firsthand-client background in how he presents the delivered photos on his own channels (a genuine testimonial wrapped around the images), in a form Aaron can reshare, so the delivery doubles as cross-promo for both. This is Noah's move in the presentation/delivery, not a page element.
 
 ## Log
+- 2026-07-28: First set LIVE on delivery.html: 12 frames filed by use (sign 3, market 2, solo 4, transit 3), M02 + M09 tagged 'Here because it made us laugh' per Noah. No download links yet by design: downloads land with the finished set, alongside the invoice (balance on delivery). Headshot + podcast-cover crops still owed from the 8K masters.
+
 - 2026-07-28: Delivery page scaffolded at delivery.html (dark-gallery form, sections from the Jul 21 use map: sign, bringing-to-market, solo, Skokie Swift, headshots by purpose, podcast cover, headers/crops). Grids fill as Noah's edit lands; page states the Aug 3 landing. Plan page untouched.
 
 - 2026-07-21: Handoff sweep edits to the live page: the Skokie route line neutralized (personal-circumstance context stays off the public page per the boundary rule) and the pre-shoot weather-watch item replaced with a shot-complete note (session ran Jul 20; delivery within 14 days). No other page changes.
