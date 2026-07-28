@@ -16,6 +16,8 @@ Read with CLAUDE.md before touching the pages. Public repo: nothing here the who
 - CROSS-PROMOTION (Noah's presentation play, private-side): Aaron has been Noah's real estate agent as BOTH a buyer and a seller. Noah can use that firsthand-client background in how he presents the delivered photos on his own channels (a genuine testimonial wrapped around the images), in a form Aaron can reshare, so the delivery doubles as cross-promo for both. This is Noah's move in the presentation/delivery, not a page element.
 
 ## Log
+- 2026-07-28 (later): Page gains 'Before the shutter' (the plan, the backwards-built route, the dinner direction, link to the plan page) with Aaron's brief as a pull quote, and 'From the other side of this deal' (Noah's client-side cross-promo note, reshareable). Invoice ABBA-0004 generated ($1,200, travel waiver shown, due on delivery by Aug 3) at ~/Desktop/ABBA/invoices/. Email to Aaron staged (link as paste marker, invoice attaches by hand). ALL PENDING NOAH'S REVIEW before send.
+
 - 2026-07-28: First set LIVE on delivery.html: 12 frames filed by use (sign 3, market 2, solo 4, transit 3), M02 + M09 tagged 'Here because it made us laugh' per Noah. No download links yet by design: downloads land with the finished set, alongside the invoice (balance on delivery). Headshot + podcast-cover crops still owed from the 8K masters.
 
 - 2026-07-28: Delivery page scaffolded at delivery.html (dark-gallery form, sections from the Jul 21 use map: sign, bringing-to-market, solo, Skokie Swift, headshots by purpose, podcast cover, headers/crops). Grids fill as Noah's edit lands; page states the Aug 3 landing. Plan page untouched.
