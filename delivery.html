@@ -50,6 +50,15 @@
   footer{margin-top:64px;padding-top:22px;border-top:1px solid var(--line);color:var(--mut);font-size:13.5px}
   footer p{margin-bottom:10px;max-width:70ch}
   a{color:var(--brand)}
+  .dlrow{margin:14px 0 0}
+  .btn{display:inline-block;margin-right:12px;padding:9px 30px;border:1px solid var(--brand);
+    border-radius:22px;color:var(--brand);font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+    font-weight:600;text-decoration:none}
+  .btn:hover{background:var(--brand);color:#14110d}
+  #lb{position:fixed;inset:0;background:rgba(5,5,6,.96);display:flex;align-items:center;justify-content:center;z-index:99}
+  #lb[hidden]{display:none}
+  #lb img{max-width:94vw;max-height:92vh;width:auto;height:auto}
+  #lbx{position:fixed;top:10px;right:16px;font-size:40px;background:none;border:none;color:#ececee;cursor:pointer;line-height:1;z-index:100}
 </style>
 </head>
 <body>
@@ -62,10 +71,13 @@
 
 <header>
   <p class="mark">Abba Photo</p>
-  <p class="toplink"><a href="gallery.html">The gallery: the complete set, every frame downloadable</a></p>
+  <h2 style="margin-top:4px">Download the gallery</h2>
+  <p class="dlrow">
+    <a class="btn" href="Masliansky-web-set.zip">Web</a>
+    <a class="btn" href="https://drive.google.com/drive/folders/1cIr1ibmdvAxHoyOGSCmVPis__f8Nv1KB" target="_blank" rel="noopener">Print</a>
+  </p>
   <p class="stand">One afternoon into dusk, across the city Aaron works: his listings, his streets,
-  the train he rides. Each frame filed by the job it does.</p>
-  <span class="landing">The complete set &middot; everything downloadable</span>
+  the train he rides. Twenty frames.</p>
 </header>
 
 <section class="owed">
@@ -78,39 +90,28 @@
   <p>Use this note anywhere it helps. Shareable cuts for your feeds come with the finished set.</p>
 </section>
 
-<section class="owed" style="border-color:rgba(111,224,176,.45)">
-  <h2>Download everything</h2>
-  <p style="color:var(--ink)">The full-resolution set, for print and archive:
-  <a href="https://drive.google.com/drive/folders/1cIr1ibmdvAxHoyOGSCmVPis__f8Nv1KB" target="_blank" rel="noopener"><b>the folder</b></a>.
-  The web-size set, right for email, social and sharing:
-  <a href="Masliansky-web-set.zip"><b>one zip</b></a>.
-  Every image with the credit line built into the frame, ready to post anywhere:
-  <a href="Masliansky-credited-set.zip"><b>the credited set</b></a>.
-  Every frame below also opens large on a click, and
-  <a href="gallery.html"><b>the gallery</b></a> carries a download button under each frame.</p>
-</section>
 
 
 
 
 <section>
   <h2>The sign with his name</h2>
-    <div class="grid"><div class="gcard"><a class="gph" href="img/present/F08.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F08.jpg" alt="Frame F08"><span class="gnum">F08</span></a></div><div class="gcard"><a class="gph" href="img/present/F13.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F13.jpg" alt="Frame F13"><span class="gnum">F13</span></a></div><div class="gcard"><a class="gph" href="img/present/F09.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F09.jpg" alt="Frame F09"><span class="gnum">F09</span></a></div><div class="gcard"><a class="gph" href="img/present/F14.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F14.jpg" alt="Frame F14"><span class="gnum">F14</span></a></div></div>
+    <div class="grid"><div class="gcard"><a class="gph" href="img/present/F08.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F08.jpg" alt="Frame F08"><span class="gnum">F08</span></a><a class="gtag" href="img/web/F08.jpg" download="AaronMasliansky_F08_web.jpg">download</a></div><div class="gcard"><a class="gph" href="img/present/F13.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F13.jpg" alt="Frame F13"><span class="gnum">F13</span></a><a class="gtag" href="img/web/F13.jpg" download="AaronMasliansky_F13_web.jpg">download</a></div><div class="gcard"><a class="gph" href="img/present/F09.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F09.jpg" alt="Frame F09"><span class="gnum">F09</span></a><a class="gtag" href="img/web/F09.jpg" download="AaronMasliansky_F09_web.jpg">download</a></div><div class="gcard"><a class="gph" href="img/present/F14.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F14.jpg" alt="Frame F14"><span class="gnum">F14</span></a><a class="gtag" href="img/web/F14.jpg" download="AaronMasliansky_F14_web.jpg">download</a></div></div>
 </section>
 
 <section>
   <h2>Bringing a home to market</h2>
-    <div class="grid"><div class="gcard"><a class="gph" href="img/present/F01.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F01.jpg" alt="Frame F01"><span class="gnum">F01</span></a></div><div class="gcard"><a class="gph" href="img/present/F03.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F03.jpg" alt="Frame F03"><span class="gnum">F03</span></a></div><div class="gcard"><a class="gph" href="img/present/F05.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F05.jpg" alt="Frame F05"><span class="gnum">F05</span></a></div><div class="gcard"><a class="gph" href="img/present/F06.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F06.jpg" alt="Frame F06"><span class="gnum">F06</span></a></div><div class="gcard"><a class="gph" href="img/present/F07.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F07.jpg" alt="Frame F07"><span class="gnum">F07</span></a></div></div>
+    <div class="grid"><div class="gcard"><a class="gph" href="img/present/F01.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F01.jpg" alt="Frame F01"><span class="gnum">F01</span></a><a class="gtag" href="img/web/F01.jpg" download="AaronMasliansky_F01_web.jpg">download</a></div><div class="gcard"><a class="gph" href="img/present/F03.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F03.jpg" alt="Frame F03"><span class="gnum">F03</span></a><a class="gtag" href="img/web/F03.jpg" download="AaronMasliansky_F03_web.jpg">download</a></div><div class="gcard"><a class="gph" href="img/present/F05.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F05.jpg" alt="Frame F05"><span class="gnum">F05</span></a><a class="gtag" href="img/web/F05.jpg" download="AaronMasliansky_F05_web.jpg">download</a></div><div class="gcard"><a class="gph" href="img/present/F06.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F06.jpg" alt="Frame F06"><span class="gnum">F06</span></a><a class="gtag" href="img/web/F06.jpg" download="AaronMasliansky_F06_web.jpg">download</a></div><div class="gcard"><a class="gph" href="img/present/F07.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F07.jpg" alt="Frame F07"><span class="gnum">F07</span></a><a class="gtag" href="img/web/F07.jpg" download="AaronMasliansky_F07_web.jpg">download</a></div></div>
 </section>
 
 <section>
   <h2>Solo in his spaces</h2>
-    <div class="grid"><div class="gcard"><a class="gph" href="img/present/F04.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F04.jpg" alt="Frame F04"><span class="gnum">F04</span></a></div><div class="gcard"><a class="gph" href="img/present/F15.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F15.jpg" alt="Frame F15"><span class="gnum">F15</span></a></div></div>
+    <div class="grid"><div class="gcard"><a class="gph" href="img/present/F04.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F04.jpg" alt="Frame F04"><span class="gnum">F04</span></a><a class="gtag" href="img/web/F04.jpg" download="AaronMasliansky_F04_web.jpg">download</a></div><div class="gcard"><a class="gph" href="img/present/F15.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F15.jpg" alt="Frame F15"><span class="gnum">F15</span></a><a class="gtag" href="img/web/F15.jpg" download="AaronMasliansky_F15_web.jpg">download</a></div></div>
 </section>
 
 <section>
   <h2>The Skokie Swift and the city</h2>
-    <div class="grid"><div class="gcard"><a class="gph" href="img/present/F16.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F16.jpg" alt="Frame F16"><span class="gnum">F16</span></a></div><div class="gcard"><a class="gph" href="img/present/F17.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F17.jpg" alt="Frame F17"><span class="gnum">F17</span></a></div><div class="gcard"><a class="gph" href="img/present/F18.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F18.jpg" alt="Frame F18"><span class="gnum">F18</span></a></div><div class="gcard"><a class="gph" href="img/present/F20.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F20.jpg" alt="Frame F20"><span class="gnum">F20</span></a></div></div>
+    <div class="grid"><div class="gcard"><a class="gph" href="img/present/F16.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F16.jpg" alt="Frame F16"><span class="gnum">F16</span></a><a class="gtag" href="img/web/F16.jpg" download="AaronMasliansky_F16_web.jpg">download</a></div><div class="gcard"><a class="gph" href="img/present/F17.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F17.jpg" alt="Frame F17"><span class="gnum">F17</span></a><a class="gtag" href="img/web/F17.jpg" download="AaronMasliansky_F17_web.jpg">download</a></div><div class="gcard"><a class="gph" href="img/present/F18.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F18.jpg" alt="Frame F18"><span class="gnum">F18</span></a><a class="gtag" href="img/web/F18.jpg" download="AaronMasliansky_F18_web.jpg">download</a></div><div class="gcard"><a class="gph" href="img/present/F20.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F20.jpg" alt="Frame F20"><span class="gnum">F20</span></a><a class="gtag" href="img/web/F20.jpg" download="AaronMasliansky_F20_web.jpg">download</a></div></div>
 </section>
 
 <section>
@@ -127,7 +128,7 @@
 
 <section>
   <h2>The podcast cover</h2>
-    <div class="grid"><div class="gcard"><a class="gph" href="img/present/F19.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F19.jpg" alt="Frame F19"><span class="gnum">F19</span></a></div></div>
+    <div class="grid"><div class="gcard"><a class="gph" href="img/present/F19.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F19.jpg" alt="Frame F19"><span class="gnum">F19</span></a><a class="gtag" href="img/web/F19.jpg" download="AaronMasliansky_F19_web.jpg">download</a></div></div>
 </section>
 
 <section>
@@ -140,7 +141,7 @@
 
 <section>
   <h2>Because they made us laugh</h2>
-<div class="grid"><div class="gcard"><a class="gph" href="img/present/F10.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F10.jpg" alt="Frame F10"><span class="gnum">F10</span></a></div><div class="gcard"><a class="gph" href="img/present/F12.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F12.jpg" alt="Frame F12"><span class="gnum">F12</span></a></div><div class="gcard"><a class="gph" href="img/present/F02.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F02.jpg" alt="Frame F02"><span class="gnum">F02</span></a></div></div>
+<div class="grid"><div class="gcard"><a class="gph" href="img/present/F10.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F10.jpg" alt="Frame F10"><span class="gnum">F10</span></a><a class="gtag" href="img/web/F10.jpg" download="AaronMasliansky_F10_web.jpg">download</a></div><div class="gcard"><a class="gph" href="img/present/F12.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F12.jpg" alt="Frame F12"><span class="gnum">F12</span></a><a class="gtag" href="img/web/F12.jpg" download="AaronMasliansky_F12_web.jpg">download</a></div><div class="gcard"><a class="gph" href="img/present/F02.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/thumb/F02.jpg" alt="Frame F02"><span class="gnum">F02</span></a><a class="gtag" href="img/web/F02.jpg" download="AaronMasliansky_F02_web.jpg">download</a></div></div>
 </section>
 
 <section class="owed">
@@ -153,12 +154,25 @@
   <p>Photographs by Noah Gallagher &middot; Abba Photo &middot;
   <a href="https://www.abba-photo.com">abba-photo.com</a> &middot;
   <a href="mailto:noah@abba-photo.com">noah@abba-photo.com</a></p>
+  <p>For posting anywhere, <a href="Masliansky-credited-set.zip">the credited set</a> carries every
+  image with the credit line built into the frame. The shareable cut lives at
+  <a href="gallery.html">the gallery</a>.</p>
   <p>Aaron holds a perpetual license to use every image here across his professional presence, in
   print, digital and social. Copyright remains with Abba Photo. This page is not indexed by search
   engines and is not published anywhere; it is yours to share.</p>
 </footer>
 
 </div>
+<div id="lb" hidden><button id="lbx" aria-label="Close">&times;</button><img id="lbimg" alt=""></div>
+<script>
+document.querySelectorAll("a.gph").forEach(function(a){a.addEventListener("click",function(e){
+  e.preventDefault();document.getElementById("lbimg").src=a.getAttribute("href");
+  document.getElementById("lb").hidden=false;document.body.style.overflow="hidden";});});
+function lbclose(){document.getElementById("lb").hidden=true;
+  document.getElementById("lbimg").src="";document.body.style.overflow="";}
+document.getElementById("lb").addEventListener("click",lbclose);
+document.addEventListener("keydown",function(e){if(e.key==="Escape")lbclose();});
+</script>
 <script data-goatcounter="https://abbaphoto.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
